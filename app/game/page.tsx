@@ -2,17 +2,19 @@
 
 import Card from "@/components/card/Card";
 import Field from "@/components/field/Field";
+import { useState } from "react";
 
 export default function Page() {
+    const [balance, setBalance] = useState(100);
 
-function handleBalanceChange(balance: number, amount: number) {
-    balance = balance + amount
-}
+    function handleBalanceChange(amount: number) {
+        setBalance(prevBalance => prevBalance + amount);
+    }
 
     return(
         <>
         
-        <Field balance={100} setBalance={handleBalanceChange}>
+        <Field balance={balance} updateBalance={handleBalanceChange}>
             <Card />
             <Card />
             <Card />
@@ -30,6 +32,7 @@ function handleBalanceChange(balance: number, amount: number) {
             <Card />
             <Card />
         </Field>
+        <button>Exit</button>
         </>
     )
 }
