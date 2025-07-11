@@ -7,10 +7,10 @@ import { useContext } from "react";
 
 export default function Page() {
 
-    const { balance, updateBalance, papatyaCount, updatePapatyaCount  } = useContext(BalanceContext);
+    const { balance, updateBalance, papatyaCount, updatePapatyaCount, laleCount, updateLaleCount} = useContext(BalanceContext);
 
     return(
-        <Market balance={balance} updateBalance={updateBalance} papatyaCount={papatyaCount} updatePapatyaCount={updatePapatyaCount}>
+        <Market balance={balance} updateBalance={updateBalance} papatyaCount={papatyaCount} updatePapatyaCount={updatePapatyaCount} laleCount={laleCount} updateLaleCount={updateLaleCount}>
              <MarketCard/>   
         </Market>
     )

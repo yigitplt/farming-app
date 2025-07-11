@@ -15,6 +15,7 @@ export default function RootLayout({
 
   const [balance, setBalance] = useState(100);
   const [papatyaCount, setPapatyaCount] = useState(0);
+  const [laleCount, setLaleCount] = useState(0);
 
   function updateBalance(amount: number) {
     setBalance(prev => prev + amount);
@@ -22,6 +23,10 @@ export default function RootLayout({
 
   function updatePapatyaCount(amount: number) {
     setPapatyaCount(prev => prev + amount);
+  }
+
+  function updateLaleCount(amount: number) {
+    setLaleCount(prev => prev + amount);
   }
 
 
@@ -34,6 +39,8 @@ export default function RootLayout({
             updateBalance,
             papatyaCount,
             updatePapatyaCount,
+            laleCount,
+            updateLaleCount,
           }}
         >
           {children}

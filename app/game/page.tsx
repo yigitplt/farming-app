@@ -9,12 +9,12 @@ import { use, useContext, useState } from "react";
 export default function Page() {
 
     const router = useRouter();
-    const {balance, updateBalance, papatyaCount, updatePapatyaCount} = useContext(BalanceContext);
+    const {balance, updateBalance, papatyaCount, updatePapatyaCount, laleCount, updateLaleCount} = useContext(BalanceContext);
 
     return(
         <>
         
-        <Field balance={balance} updateBalance={updateBalance} papatyaCount={papatyaCount} updatePapatyaCount={updatePapatyaCount}>
+        <Field balance={balance} updateBalance={updateBalance} papatyaCount={papatyaCount} updatePapatyaCount={updatePapatyaCount} laleCount={laleCount} updateLaleCount={updateLaleCount}>
             <Card />
             <Card />
             <Card />

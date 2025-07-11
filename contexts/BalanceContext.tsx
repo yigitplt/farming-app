@@ -7,4 +7,6 @@ export const BalanceContext = createContext({
   updateBalance: (amount: number) => {},
   papatyaCount: 0,
   updatePapatyaCount: (amount: number) => {},
+  laleCount: 0,
+  updateLaleCount: (amount: number) => {},
 });

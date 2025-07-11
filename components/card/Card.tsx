@@ -6,36 +6,52 @@ import { BalanceContext } from '@/contexts/BalanceContext';
 
 export default function Card() {
     const [plant, setPlant] = useState(0);
-    const {balance, updateBalance, papatyaCount, updatePapatyaCount} = useContext(BalanceContext);
+    const {balance, updateBalance, papatyaCount, updatePapatyaCount, laleCount, updateLaleCount} = useContext(BalanceContext);
     const [intervalId, setIntervalId] = useState(null);   
 
     function handleClick() {
-        // Harvest logic
+        
+        
+
         if (plant === 5 || plant === 4) {
             setPlant(0);
-            if (intervalId) clearInterval(intervalId);
+            clearInterval(intervalId);
             updateBalance(20);
             return;
         }
 
-        // Already dead plant
+        
         if (plant >= 6) {
             setPlant(0);
             return;
         }
 
-        // If already growing, do nothing
+        
         if (plant > 0 && plant < 4) {
             return;
         }
 
-        // Not enough seeds
-        if (papatyaCount <= 0) {
-            alert("You don't have enough seeds!");
-            return;
-        }
+        const choice = prompt("Which plant do you want to plant? (papatya / lale)");
 
-        // Start growing
+        if (choice === "papatya") {
+            if (papatyaCount <= 0) {
+                alert("You don't have enough papatya seeds!");
+                return;
+        }
+        updatePapatyaCount(-1);
+        } else if (choice === "lale") {
+            if (laleCount <= 0) {
+            alert("You don't have enough lale seeds!");
+            return;
+            }
+            updateLaleCount(-1);
+        } else {
+            alert("Invalid choice! Please type 'papatya' or 'lale'.");
+            return;
+  }
+
+
+        
         setPlant(1);
         const newIntervalId = setInterval(() => {
             setPlant((prevPlant) => prevPlant + 1);
