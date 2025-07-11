@@ -7,24 +7,27 @@ import { BalanceContext } from '@/contexts/BalanceContext';
 export default function Card() {
     const [plant, setPlant] = useState(0);
     const {balance, setBalance} = useContext(BalanceContext);
+    const [intervalId, setIntervalId] = useState(null);   
 
     function handleClick() {
         
         if(plant === 5 || plant === 4){
             setPlant(0);
-            return
+            clearInterval(intervalId);
+            return;
         }
         
-        if(plant >= 6){
+        else if(plant >= 6){
             setPlant(0);
             return;
         }
 
-
-
-        setBalance(balance - 10); 
-        setPlant(1);
-        setInterval(() => {setPlant((prevPlant) => prevPlant + 1)}, 2000);
+        else{
+            setBalance(balance - 10); 
+            setPlant(1);
+            const intervalId = setInterval(() => {setPlant((prevPlant) => prevPlant + 1)}, 2000);
+            setIntervalId(intervalId);
+        }
 
     }
 
