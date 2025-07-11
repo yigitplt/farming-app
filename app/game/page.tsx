@@ -2,19 +2,19 @@
 
 import Card from "@/components/card/Card";
 import Field from "@/components/field/Field";
-import { useState } from "react";
+import { BalanceContext } from "@/contexts/BalanceContext";
+import { useRouter } from "next/navigation";
+import { use, useContext, useState } from "react";
 
 export default function Page() {
-    const [balance, setBalance] = useState(100);
 
-    function handleBalanceChange(amount: number) {
-        setBalance(prevBalance => prevBalance + amount);
-    }
+    const router = useRouter();
+    const {balance, updateBalance, papatyaCount, updatePapatyaCount} = useContext(BalanceContext);
 
     return(
         <>
         
-        <Field balance={balance} updateBalance={handleBalanceChange}>
+        <Field balance={balance} updateBalance={updateBalance} papatyaCount={papatyaCount} updatePapatyaCount={updatePapatyaCount}>
             <Card />
             <Card />
             <Card />
@@ -32,7 +32,7 @@ export default function Page() {
             <Card />
             <Card />
         </Field>
-        <button>Exit</button>
+        <button onClick={() => router.push("/store")}>Store</button>
         </>
     )
 }

@@ -6,30 +6,44 @@ import { BalanceContext } from '@/contexts/BalanceContext';
 
 export default function Card() {
     const [plant, setPlant] = useState(0);
-    const {balance, updateBalance} = useContext(BalanceContext);
+    const {balance, updateBalance, papatyaCount, updatePapatyaCount} = useContext(BalanceContext);
     const [intervalId, setIntervalId] = useState(null);   
 
     function handleClick() {
-        
-        if(plant === 5 || plant === 4){
+        // Harvest logic
+        if (plant === 5 || plant === 4) {
             setPlant(0);
-            clearInterval(intervalId);
-            updateBalance(20); 
+            if (intervalId) clearInterval(intervalId);
+            updateBalance(20);
             return;
         }
-        
-        else if(plant >= 6){
+
+        // Already dead plant
+        if (plant >= 6) {
             setPlant(0);
             return;
         }
 
-        else{
-            setPlant(1);
-            const intervalId = setInterval(() => {setPlant((prevPlant) => prevPlant + 1)}, 2000);
-            setIntervalId(intervalId);
-            updateBalance(-10); 
+        // If already growing, do nothing
+        if (plant > 0 && plant < 4) {
+            return;
         }
 
+        // Not enough seeds
+        if (papatyaCount <= 0) {
+            alert("You don't have enough seeds!");
+            return;
+        }
+
+        // Start growing
+        setPlant(1);
+        const newIntervalId = setInterval(() => {
+            setPlant((prevPlant) => prevPlant + 1);
+        }, 2000);
+        setIntervalId(newIntervalId);
+
+        
+        updatePapatyaCount(-1);
     }
 
 
