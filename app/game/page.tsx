@@ -13,7 +13,8 @@ export default function Page() {
 
     return(
         <>
-        
+
+        <p>Balance: {balance}</p>
         <Field balance={balance} updateBalance={updateBalance} papatyaCount={papatyaCount} updatePapatyaCount={updatePapatyaCount} laleCount={laleCount} updateLaleCount={updateLaleCount}>
             <Card />
             <Card />

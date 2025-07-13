@@ -1,0 +1,7 @@
+.marketContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+}
+

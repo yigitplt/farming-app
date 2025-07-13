@@ -8,12 +8,15 @@ export default function Market({children, balance, updateBalance, papatyaCount, 
 
     return(
         <>
-        <div className={styles.field}>
+        <div className={styles.marketContainer}>
             <BalanceContext.Provider value={{balance, updateBalance, papatyaCount, updatePapatyaCount, laleCount, updateLaleCount}}>
                 {children}
             </BalanceContext.Provider>
+            <br />
+            <p>Balance: {balance}</p> 
         </div> 
-        <p>Balance: {balance}</p> 
+        
+        
         </>
     )
 }

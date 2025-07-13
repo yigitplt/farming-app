@@ -2,6 +2,7 @@
 
 import { BalanceContext } from "@/contexts/BalanceContext";
 import { useContext, useState } from "react";
+import styles from "./MarketCard.module.css"; 
 
 export default function MarketCard() {
   const { balance, updateBalance, papatyaCount, updatePapatyaCount, laleCount, updateLaleCount } = useContext(BalanceContext);
@@ -36,7 +37,7 @@ export default function MarketCard() {
 
   return (
     <>
-      <div>
+      <div className={styles.marketCard}>
         <p>Papatya</p> <br />
         <p>$10.00</p> <br />
         <div>
@@ -49,7 +50,7 @@ export default function MarketCard() {
         <p>Stock: {papatyaCount}</p>
       </div>
 
-      <div>
+      <div className={styles.marketCard}>
         <p>Lale</p> <br />
         <p>$20.00</p> <br />
         <div>
