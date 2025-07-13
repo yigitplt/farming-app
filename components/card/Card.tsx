@@ -30,6 +30,7 @@ export default function Card() {
         
         if (plant >= 6) {
             setPlant(0);
+            clearInterval(intervalId);
             setCurrentPlantType(null);
             return;
         }
@@ -56,7 +57,7 @@ export default function Card() {
             }
             updateLaleCount(-1);
             setCurrentPlantType("lale");
-            
+
         } else {
             alert("Invalid choice! Please type 'papatya' or 'lale'.");
             return;
@@ -76,23 +77,42 @@ export default function Card() {
 
 
     function showPlant(){
+
         switch(plant) {
             case 0:
                 return null;
             case 1:
-                return "T";
+                return <img src={"/images/Seeding.png"} alt="seed" className={styles.plantImage} />;
             case 2:
-                return "F";
+                return <img src={"/images/LittlePlant.png"} alt="little" className={styles.plantImage} />;
             case 3:
-                return "B";
+                return <img src={"/images/MiddlePlant.png"} alt="middle" className={styles.plantImage} />;
             case 4:
-                return "Ç";
+                if (currentPlantType === "papatya") {
+                    return <img src={"/images/Daisy.png"} alt="papatya" className={styles.plantImage} />;
+                } else if (currentPlantType === "lale") {
+                    return <img src={"/images/Tulip.png"} alt="lale" className={styles.plantImage} />;
+                }
             case 5:
-                return "Ç";
+                if (currentPlantType === "papatya") {
+                    return <img src={"/images/Daisy.png"} alt="papatya" className={styles.plantImage} />;
+                } else if (currentPlantType === "lale") {
+                    return <img src={"/images/Tulip.png"} alt="lale" className={styles.plantImage} />;
+                }
             case 6:
-                return "K";
+                if (currentPlantType === "papatya") {
+                    return <img src={"/images/DriedDaisy.png"} alt="papatya" className={styles.plantImage} />;
+                } else if (currentPlantType === "lale") {
+                    return <img src={"/images/DriedTulip.png"} alt="lale" className={styles.plantImage} />;
+                }
             default:
-                return "K";
+                if (currentPlantType === "papatya") {
+                    return <img src={"/images/DriedDaisy.png"} alt="papatya" className={styles.plantImage} />;
+                } else if (currentPlantType === "lale") {
+                    return <img src={"/images/DriedTulip.png"} alt="lale" className={styles.plantImage} />;
+                }
+
+            
         }
     }
 
