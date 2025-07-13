@@ -1,5 +1,3 @@
-/* styles for app/store/Store.module.css */
-
 .storeContainer {
   display: flex;
   flex-direction: column;
@@ -18,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 25px;
-  background-color: #5d9c59; /* Matching the game screen header */
+  background-color: #5d9c59; 
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   margin-bottom: 30px;
@@ -39,7 +37,7 @@
 }
 
 .backButton {
-  background-color: #dfa878; /* Matching the game screen button */
+  background-color: #dfa878; 
   color: white;
   padding: 10px 20px;
   border: none;

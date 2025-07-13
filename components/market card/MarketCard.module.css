@@ -1,5 +1,3 @@
-/* styles/MarketCard.module.css */
-
 .marketCard {
   background: linear-gradient(145deg, #ffffff, #f9f9f9);
   border: 1px solid #e0e0e0;
@@ -73,7 +71,6 @@
   font-weight: 600;
   color: #34495e;
   transition: border-color 0.3s, box-shadow 0.3s;
-  -moz-appearance: textfield; /* Hides arrows in Firefox */
 }
 
 .quantityInput:focus {
@@ -82,7 +79,6 @@
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-/* Hides arrows in Chrome, Safari, Edge */
 .quantityInput::-webkit-outer-spin-button,
 .quantityInput::-webkit-inner-spin-button {
   -webkit-appearance: none;

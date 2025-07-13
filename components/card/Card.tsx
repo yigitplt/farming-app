@@ -5,6 +5,7 @@ import styles from './Card.module.css';
 import { BalanceContext } from '@/contexts/BalanceContext';
 
 export default function Card() {
+    const [currentPlantType, setCurrentPlantType] = useState(null);
     const [plant, setPlant] = useState(0);
     const {balance, updateBalance, papatyaCount, updatePapatyaCount, laleCount, updateLaleCount} = useContext(BalanceContext);
     const [intervalId, setIntervalId] = useState(null);   
@@ -16,13 +17,20 @@ export default function Card() {
         if (plant === 5 || plant === 4) {
             setPlant(0);
             clearInterval(intervalId);
-            updateBalance(20);
+
+            if (currentPlantType === "papatya") {
+                updateBalance(20);
+            } else if (currentPlantType === "lale") {
+                updateBalance(40);
+            }
+            setCurrentPlantType(null);
             return;
         }
 
         
         if (plant >= 6) {
             setPlant(0);
+            setCurrentPlantType(null);
             return;
         }
 
@@ -39,12 +47,16 @@ export default function Card() {
                 return;
         }
         updatePapatyaCount(-1);
+        setCurrentPlantType("papatya");
+
         } else if (choice === "lale") {
             if (laleCount <= 0) {
             alert("You don't have enough lale seeds!");
             return;
             }
             updateLaleCount(-1);
+            setCurrentPlantType("lale");
+            
         } else {
             alert("Invalid choice! Please type 'papatya' or 'lale'.");
             return;
