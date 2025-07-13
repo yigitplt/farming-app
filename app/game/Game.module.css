@@ -1,24 +1,22 @@
-/* styles for app/store/Store.module.css */
-
-.storeContainer {
+.gameContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
   min-height: 100vh;
   padding: 20px;
-  background-color: #f0f8ff;
   box-sizing: border-box;
 }
 
 .header {
   width: 100%;
-  max-width: 800px;
+  max-width: 600px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 25px;
-  background-color: #5d9c59; /* Matching the game screen header */
+  background-color: #5d9c59;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   margin-bottom: 30px;
@@ -28,18 +26,29 @@
 .title {
   font-size: 1.75rem;
   font-weight: bold;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-.balanceDisplay {
-  font-size: 1.2rem;
+.statsContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+.balanceDisplay,
+.flowerCountDisplay {
+  font-size: 1.1rem; 
   font-weight: 600;
   background-color: rgba(0, 0, 0, 0.2);
   padding: 8px 16px;
   border-radius: 25px;
+  display: flex;
+  gap: 5px;
 }
 
-.backButton {
-  background-color: #dfa878; /* Matching the game screen button */
+.storeButton {
+  background-color: #dfa878;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -50,16 +59,7 @@
   transition: background-color 0.3s, transform 0.2s;
 }
 
-.backButton:hover {
+.storeButton:hover {
   background-color: #c99465;
   transform: scale(1.05);
-}
-
-.cardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  gap: 2rem;
-  width: 100%;
 }
